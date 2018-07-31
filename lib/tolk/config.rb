@@ -8,6 +8,9 @@ module Tolk
       # Mapping : a hash of the type { 'ar'    => 'Arabic' }
       attr_accessor :mapping
 
+      # Configure whether allow dump all locales. `true` by default
+      attr_accessor :allow_dump_all
+
       # Dump locale path by default the locales folder (config/locales)
       attr_accessor :dump_path
 
@@ -36,6 +39,8 @@ module Tolk
         @strip_texts = true
 
         @block_xxx_en_yml_locale_files = true # keep compat with older versions
+
+        @allow_dump_all = true
 
         @dump_path = Proc.new { "#{Rails.application.root}/config/locales" }
 
